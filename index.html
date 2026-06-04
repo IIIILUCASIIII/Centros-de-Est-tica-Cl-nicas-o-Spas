@@ -3,658 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Estética, Clínica & Bienestar</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Google Fonts: Playfair Display & Montserrat -->
+    <title>Estética, Clínicas & Spas - Soluciones Web</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-alabaster: #FCF8F5;    /* Crema suave relajante */
-            --primary-sand: #D4A373;    /* Arena dorado */
-            --accent-blush: #E6B8A2;    /* Rosa viejo / blush */
-            --neutral-charcoal: #1C252C;/* Carbón elegante */
-            --neutral-muted: #5C677D;   /* Gris neutro */
-            --white: #FFFFFF;
+            --bg-soft: #fbf9f6;        /* Fondo crema ultra suave y limpio */
+            --text-main: #2d3142;      /* Gris muy oscuro para máxima legibilidad */
+            --text-muted: #6c757d;     /* Gris medio para descripciones */
+            --accent-gold: #c5a880;    /* Oro suave para detalles premium */
+            --accent-spa: #7c9a92;     /* Verde eucalipto/spa para botones y badges */
+            --card-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-alabaster);
-            color: var(--neutral-charcoal);
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .serif-font {
-            font-family: 'Playfair Display', serif;
+        /* Cabecera de la página */
+        .header-section {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .spa-badge {
+            display: inline-block;
+            background-color: rgba(124, 154, 146, 0.1);
+            color: var(--accent-spa);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
             font-weight: 600;
-        }
-
-        .navbar {
-            background-color: rgba(252, 248, 245, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 163, 115, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            letter-spacing: 4px;
-            color: var(--neutral-charcoal) !important;
-            font-weight: 700;
-        }
-
-        .nav-link {
-            color: var(--neutral-charcoal) !important;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+            margin-bottom: 25px;
+            border: 1px solid rgba(124, 154, 146, 0.2);
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-sand) !important;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 20px;
         }
 
-        .hero-section {
-            background: linear-gradient(rgba(28, 37, 44, 0.45), rgba(28, 37, 44, 0.65)), 
-                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1600') no-repeat center center;
-            background-size: cover;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Contenedor Principal (Diferente a la cuadrícula habitual) */
+        .showcase-container {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--card-white);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(45, 49, 66, 0.04);
+            border: 1px solid rgba(197, 168, 128, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-main);
             position: relative;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            color: var(--white);
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
+        /* Bloque de características/servicios en formato fila orgánica */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px dashed rgba(197, 168, 128, 0.3);
         }
 
-        .btn-aura {
-            background-color: var(--primary-sand);
-            color: var(--white);
-            border: 1px solid var(--primary-sand);
-            border-radius: 50px;
-            padding: 14px 32px;
+        .feature-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .icon-box {
+            background-color: var(--bg-soft);
+            color: var(--accent-spa);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(124, 154, 146, 0.15);
+        }
+
+        .feature-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-text p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .feature-text p strong {
+            color: var(--accent-spa);
             font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: all 0.4s ease;
         }
 
-        .btn-aura:hover {
+        /* Botón de acción principal */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-spa {
+            display: inline-block;
+            background-color: var(--accent-spa);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(124, 154, 146, 0.25);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-spa:hover {
             background-color: transparent;
-            color: var(--white);
-            border-color: var(--white);
+            color: var(--accent-spa);
+            border-color: var(--accent-spa);
+            box-shadow: 0 10px 25px rgba(124, 154, 146, 0.05);
             transform: translateY(-2px);
         }
 
-        .btn-outline-aura {
-            background-color: transparent;
-            color: var(--neutral-charcoal);
-            border: 1.5px solid var(--primary-sand);
-            border-radius: 50px;
-            padding: 10px 24px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-aura:hover {
-            background-color: var(--primary-sand);
-            color: var(--white);
-        }
-
-        .treatment-card {
-            background-color: var(--white);
-            border: none;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            transition: all 0.4s ease;
-        }
-
-        .treatment-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 163, 115, 0.12);
-        }
-
-        .card-price {
-            font-size: 1.5rem;
-            color: var(--primary-sand);
-            font-weight: 700;
-        }
-
-        .treatment-badge {
-            background-color: rgba(230, 184, 162, 0.2);
-            color: #b07050;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 14px;
-            border-radius: 50px;
-            display: inline-block;
-        }
-
-        .deco-line {
-            width: 80px;
-            height: 2px;
-            background-color: var(--primary-sand);
-            margin: 15px auto;
-        }
-
-        .split-aesthetic {
-            background-color: var(--white);
-        }
-
-        .image-container-scented {
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(28, 37, 44, 0.08);
-            border: 8px solid var(--bg-alabaster);
-        }
-
-        .image-container-scented img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .accordion-item {
-            border: none !important;
-            background-color: var(--white) !important;
-            margin-bottom: 12px;
-            border-radius: 15px !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            overflow: hidden;
-        }
-
-        .accordion-button {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--neutral-charcoal) !important;
-            background-color: var(--white) !important;
-            padding: 20px 25px !important;
-        }
-
-        .accordion-button:not(.collapsed) {
-            background-color: rgba(230, 184, 162, 0.08) !important;
-            color: var(--primary-sand) !important;
-            box-shadow: none !important;
-        }
-
-        .accordion-button:focus {
-            box-shadow: none !important;
-        }
-
-        .form-control, .form-select {
-            border: 1px solid rgba(212, 163, 115, 0.25);
-            background-color: var(--bg-alabaster);
-            border-radius: 12px;
-            padding: 12px 18px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary-sand);
-            box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
-            background-color: var(--white);
-        }
-
+        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25D366;
-            color: var(--white);
-            width: 65px;
-            height: 65px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
+            z-index: 999;
+            transition: transform 0.3s ease;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) rotate(5deg);
-            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .feature-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .showcase-container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Botón Flotante de WhatsApp para Reservas Rápidas -->
-    <a href="https://wa.me/541155550220?text=Hola!%20Me%20gustar%C3%ADa%20agendar%20un%20turno" class="whatsapp-float" target="_blank" aria-label="WhatsApp para Turnos">
-        <i class="bi bi-whatsapp"></i>
+    <div class="header-section">
+        <div class="spa-badge">Estética, Clínicas & Spas</div>
+        <h1>Diseño Digital Inspirado en el Bienestar</h1>
+        <p class="subtitle">
+            Estructuras web pensadas exclusivamente para centros de salud, belleza y relajación. Creamos un entorno digital que transmite la misma paz y confianza que tu propio establecimiento.
+        </p>
+    </div>
+
+    <div class="showcase-container">
+        <h2 class="section-title">Tu Clínica Abierta 24/7</h2>
+
+        <div class="feature-row">
+            <div class="icon-box">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Interfaz Pulcra y de Alta Confianza</h3>
+                <p>Diseño visual limpio, minimalista y elegante, estructurado estratégicamente <strong>para convertir visitas digitales en citas reales de manera intuitiva y relajada.</strong></p>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="icon-box">
+                <i class="fa-regular fa-calendar-check"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Agendamiento Inteligente Automatizado</h3>
+                <p>Permite que tus pacientes reserven, reprogramen o consulten la disponibilidad de tratamientos de forma fluida desde cualquier dispositivo móvil sin fricciones.</p>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="icon-box">
+                <i class="fa-solid fa-sparkles"></i>
+            </div>
+            <div class="feature-text">
+                <h3>Visualización Premium de Tratamientos</h3>
+                <p>Espacios dedicados para exponer de manera impecable tus servicios de aparatología, medicina estética o terapias, elevando la percepción de valor de tu marca.</p>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <a href="https://wa.me/34678631572?text=Hola,%20solicito%20demo%20para%20Clinica%20Estetica" class="btn-spa" target="_blank">Ver Demo En Vivo</a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/34678631572?text=Hola,%20me%20gustaría%20pedir%20un%20presupuesto" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
-        <div class="container">
-            <a class="navbar-brand" href="#">AURA</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2 text-dark"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-2 gap-lg-4 align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tratamientos">Tratamientos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#seguridad">Tecnología</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#opiniones">Experiencias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                    <li class="nav-item ms-lg-2">
-                        <a href="#reservar" class="btn btn-outline-aura btn-sm py-2 px-4">Reservar Turno</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section id="inicio" class="hero-section text-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 text-center text-lg-start py-5">
-                    <span class="text-uppercase tracking-widest text-white-50 fw-semibold mb-2 d-inline-block" style="letter-spacing: 4px;">Medicina Estética & Spa</span>
-                    <h1 class="hero-title fw-bold mb-3">Regalate el momento de bienestar y cuidado que tu cuerpo merece.</h1>
-                    <p class="lead mb-4 text-white-50" style="font-size: 1.15rem; max-width: 650px;">Tratamientos estéticos avanzados y masajes terapéuticos diseñados profesionalmente para resaltar tu belleza natural y restablecer tu equilibrio.</p>
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                        <a href="#reservar" class="btn btn-aura shadow-lg">Reservar Turno Online</a>
-                        <a href="#tratamientos" class="btn btn-outline-light btn-lg rounded-pill border-2 py-3 px-4 fs-6" style="font-weight: 500; font-size: 0.85rem; letter-spacing: 2px;">Conocer Tratamientos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5" style="background-color: rgba(212, 163, 115, 0.05);">
-        <div class="container text-center">
-            <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <i class="bi bi-shield-check display-6 mb-2 d-block" style="color: var(--primary-sand);"></i>
-                        <span class="fw-bold d-block text-uppercase small" style="letter-spacing: 1px;">Aprobación FDA</span>
-                        <small class="text-muted">Aparatología de vanguardia</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <i class="bi bi-person-hearts display-6 mb-2 d-block" style="color: var(--primary-sand);"></i>
-                        <span class="fw-bold d-block text-uppercase small" style="letter-spacing: 1px;">Médicos Expertos</span>
-                        <small class="text-muted">Especialistas certificados</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <i class="bi bi-flower1 display-6 mb-2 d-block" style="color: var(--primary-sand);"></i>
-                        <span class="fw-bold d-block text-uppercase small" style="letter-spacing: 1px;">Fórmulas Orgánicas</span>
-                        <small class="text-muted">Productos hipoalergénicos</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tratamientos" class="py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <span class="text-uppercase tracking-wider fw-semibold text-muted" style="font-size: 0.8rem; letter-spacing: 3px;">Servicios Premium</span>
-                <h2 class="fw-bold text-dark display-5 mt-2">Nuestros Tratamientos</h2>
-                <div class="deco-line"></div>
-                <p class="text-muted col-lg-6 mx-auto">Seleccionamos las técnicas más innovadoras y placenteras para cuidar de tu piel, cuerpo y mente.</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <!-- Tratamiento 1 -->
-                <div class="col-md-4">
-                    <div class="treatment-card h-100 p-4 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <span class="treatment-badge">Facial</span>
-                                <span class="text-muted small"><i class="bi bi-clock me-1"></i> 60 min</span>
-                            </div>
-                            <h3 class="h4 mb-3">Limpieza Profunda & Peeling</h3>
-                            <p class="text-muted small">Renovación cutánea con activos botánicos y exfoliación ultrasónica. Elimina impurezas, hidrata en profundidad y devuelve el brillo natural a tu rostro.</p>
-                        </div>
-                        <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
-                            <div>
-                                <small class="text-muted d-block" style="font-size: 0.75rem;">Desde</small>
-                                <span class="card-price">$8.500</span>
-                            </div>
-                            <a href="#reservar" class="btn btn-outline-aura btn-sm py-2 px-3">Reservar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tratamiento 2 -->
-                <div class="col-md-4">
-                    <div class="treatment-card h-100 p-4 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <span class="treatment-badge">Corporal</span>
-                                <span class="text-muted small"><i class="bi bi-clock me-1"></i> 50 min</span>
-                            </div>
-                            <h3 class="h4 mb-3">Maderoterapia Reductora</h3>
-                            <p class="text-muted small">Técnica holística de masajes con utensilios de madera diseñados para modelar el contorno corporal, drenar toxinas y reducir celulitis de forma no invasiva.</p>
-                        </div>
-                        <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
-                            <div>
-                                <small class="text-muted d-block" style="font-size: 0.75rem;">Desde</small>
-                                <span class="card-price">$12.000</span>
-                            </div>
-                            <a href="#reservar" class="btn btn-outline-aura btn-sm py-2 px-3">Reservar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tratamiento 3 -->
-                <div class="col-md-4">
-                    <div class="treatment-card h-100 p-4 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <span class="treatment-badge">Bienestar</span>
-                                <span class="text-muted small"><i class="bi bi-clock me-1"></i> 75 min</span>
-                            </div>
-                            <h3 class="h4 mb-3">Masaje de Piedras Calientes</h3>
-                            <p class="text-muted small">La combinación perfecta entre la masoterapia descontracturante tradicional y la calidez de piedras volcánicas que alivian tensiones corporales severas.</p>
-                        </div>
-                        <div class="border-top pt-3 mt-3 d-flex justify-content-between align-items-center">
-                            <div>
-                                <small class="text-muted d-block" style="font-size: 0.75rem;">Desde</small>
-                                <span class="card-price">$10.500</span>
-                            </div>
-                            <a href="#reservar" class="btn btn-outline-aura btn-sm py-2 px-3">Reservar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="seguridad" class="py-5 split-aesthetic">
-        <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <span class="text-uppercase tracking-wider fw-semibold text-muted d-block mb-2" style="font-size: 0.8rem; letter-spacing: 3px;">Ciencia & Rigor</span>
-                    <h2 class="fw-bold display-6 mb-4">Tecnología homologada al servicio de tu seguridad</h2>
-                    <p class="text-muted mb-4">En nuestro centro combinamos la calidez de un entorno de spa con el equipamiento tecnológico de una clínica de primer nivel. Todos nuestros dispositivos cuentan con aprobaciones reguladas.</p>
-                    
-                    <div class="d-flex align-items-start mb-4">
-                        <div class="bg-light p-3 rounded-circle text-center me-3" style="color: var(--primary-sand); width: 55px; height: 55px;">
-                            <i class="bi bi-award fs-4"></i>
-                        </div>
-                        <div>
-                            <h4 class="h5 fw-bold mb-1">Resultados Comprobados</h4>
-                            <p class="text-muted small mb-0">Cada sesión de aparatología cuenta con protocolos estandarizados para que notes cambios duraderos de forma segura y progresiva.</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-start">
-                        <div class="bg-light p-3 rounded-circle text-center me-3" style="color: var(--primary-sand); width: 55px; height: 55px;">
-                            <i class="bi bi-heart-pulse fs-4"></i>
-                        </div>
-                        <div>
-                            <h4 class="h5 fw-bold mb-1">Diagnóstico Personalizado Bonificado</h4>
-                            <p class="text-muted small mb-0">Antes de iniciar cualquier procedimiento, nuestros profesionales realizan un mapeo corporal o facial exhaustivo sin cargo para determinar el mejor plan.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="image-container-scented">
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800" alt="Profesional realizando tratamiento facial estético">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="opiniones" class="py-5" style="background-color: rgba(230, 184, 162, 0.05);">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <span class="text-uppercase tracking-wider fw-semibold text-muted" style="font-size: 0.8rem; letter-spacing: 3px;">Comunidad Aura</span>
-                <h2 class="fw-bold text-dark display-5 mt-2">La voz de nuestros clientes</h2>
-                <div class="deco-line"></div>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <!-- Opinión 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="bg-white p-4 rounded shadow-sm border h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="text-warning mb-2">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="text-muted small mb-0">"El ambiente es una locura, desde que entrás el perfume, la música suave y la atención de las chicas te desconectan por completo. Me hice el masaje de piedras y salí flotando. Súper recomendado."</p>
-                        </div>
-                        <div class="mt-4 border-top pt-3 d-flex align-items-center">
-                            <i class="bi bi-person-circle fs-3 me-2" style="color: var(--accent-blush);"></i>
-                            <div>
-                                <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">María Laura Torres</h6>
-                                <small class="text-muted" style="font-size: 0.75rem;">Cliente Frecuente</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Opinión 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="bg-white p-4 rounded shadow-sm border h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="text-warning mb-2">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="text-muted small mb-0">"Excelente el diagnóstico facial. Me armaron una rutina de limpieza y peeling específica para mi tipo de piel grasa y en solo tres sesiones el cambio de textura es notable."</p>
-                        </div>
-                        <div class="mt-4 border-top pt-3 d-flex align-items-center">
-                            <i class="bi bi-person-circle fs-3 me-2" style="color: var(--accent-blush);"></i>
-                            <div>
-                                <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">Sofía Belén Galdós</h6>
-                                <small class="text-muted" style="font-size: 0.75rem;">Tratamiento Facial</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <span class="text-uppercase tracking-wider fw-semibold text-muted" style="font-size: 0.8rem; letter-spacing: 3px;">Dudas Habituales</span>
-                <h2 class="fw-bold text-dark display-5 mt-2">Preguntas Frecuentes</h2>
-                <div class="deco-line"></div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="faqAccordion">
-                        
-                        <!-- Pregunta 1 -->
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    ¿Es necesario realizar una evaluación previa?
-                                </button>
-                            </h3>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Sí, para todos los tratamientos corporales avanzados y peelings químicos, nuestro equipo médico realiza una consulta previa rápida (bonificada al 100%) para certificar que el tratamiento elegido se adapte perfectamente a tus necesidades y tipo de piel.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pregunta 2 -->
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    ¿Cómo cancelo o reprogramo un turno?
-                                </button>
-                            </h3>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Podés reprogramar o cancelar tu sesión con hasta 24 horas de anticipación a través de nuestro WhatsApp. De esta forma, podemos reasignar tu espacio a otra persona en lista de espera de manera eficiente.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pregunta 3 -->
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    ¿Cuáles son los medios de pago disponibles?
-                                </button>
-                            </h3>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Aceptamos pagos en efectivo, transferencias bancarias directas, tarjetas de débito y crédito. También contamos con promociones especiales de cuotas sin interés con bancos seleccionados en la compra de packs de tratamiento.
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reservar" class="py-5 bg-white border-top">
-        <div class="container py-4">
-            <div class="row g-5">
-                <div class="col-lg-5">
-                    <span class="text-uppercase tracking-wider fw-semibold text-muted d-block mb-2" style="font-size: 0.8rem; letter-spacing: 3px;">Establecé una cita</span>
-                    <h2 class="fw-bold text-dark display-6 mb-3">Comenzá tu transformación hoy</h2>
-                    <p class="text-muted mb-4">Elegí el tratamiento que deseás, completá tus datos y envianos tu solicitud. Una coordinadora de recepción se comunicará a la brevedad para asignarte el horario que mejor te convenga.</p>
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="bg-light p-2 rounded-circle text-center me-3" style="color: var(--primary-sand); width: 45px; height: 45px;">
-                            <i class="bi bi-geo-alt"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-0">Ubicación</h6>
-                            <p class="text-muted small mb-0">Calle del Relajo 430, Distrito Estético</p>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="bg-light p-2 rounded-circle text-center me-3" style="color: var(--primary-sand); width: 45px; height: 45px;">
-                            <i class="bi bi-telephone"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-0">Teléfono directo de Atención</h6>
-                            <p class="text-muted small mb-0">+54 11 5555-0220</p>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/541155550220" target="_blank" class="btn btn-aura w-100 shadow text-center py-3">
-                        <i class="bi bi-whatsapp me-2"></i> Chatear con un Asesor
-                    </a>
-                </div>
-
-                <div class="col-lg-7">
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm" style="background-color: var(--bg-alabaster); border: 1px solid rgba(212, 163, 115, 0.15);">
-                        <form id="bookingForm">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Nombre Completo</label>
-                                    <input type="text" class="form-control" placeholder="Ej: Valentina López" required id="clientName">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Número de Teléfono</label>
-                                    <input type="tel" class="form-control" placeholder="Ej: 11 6543 2109" required id="clientPhone">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small fw-semibold">Correo Electrónico</label>
-                                    <input type="email" class="form-control" placeholder="valentina@correo.com" required id="clientEmail">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small fw-semibold">Tratamiento de Interés</label>
-                                    <select class="form-select" required id="selectedService">
-                                        <option value="" selected disabled>Seleccioná el servicio...</option>
-                                        <option value="Limpieza Profunda & Peeling (Desde $8.500)">Limpieza Profunda & Peeling (Desde $8.500)</option>
-                                        <option value="Maderoterapia Reductora (Desde $12.000)">Maderoterapia Reductora (Desde $12.000)</option>
-                                        <option value="Masaje de Piedras Calientes (Desde $10.500)">Masaje de Piedras Calientes (Desde $10.500)</option>
-                                        <option value="Diagnóstico Inicial de Piel (Gratis)">Diagnóstico Inicial de Piel (Gratis)</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small fw-semibold">¿Tenés alguna consulta o condición que debamos saber?</label>
-                                    <textarea class="form-control" rows="4" placeholder="Ej: Piel sensible, embarazo, alergia a algún compuesto..." id="clientNotes"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-aura w-100 mt-2 py-3">Enviar Solicitud de Turno</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-5 text-secondary" style="background-color: var(--neutral-charcoal);">
-        <div class="container text-center">
-            <h3 class="serif-font text-white mb-2" style="letter-spacing: 4px;">AURA</h3>
-            <p class="small text-white-50 mb-4">Armonía, bienestar y estética integral en un solo lugar.</p>
-            <div class="d-flex justify-content-center gap-4 fs-4 mb-4">
-                <a href="#" class="text-reset" aria-label="Instagram"><i class="bi bi-instagram" style="color: var(--accent-blush);"></i></a>
-                <a href="#" class="text-reset" aria-label="Facebook"><i class="bi bi-facebook" style="color: var(--accent-blush);"></i></a>
-                <a href="#" class="text-reset" aria-label="Contacto por Correo"><i class="bi bi-envelope-heart" style="color: var(--accent-blush);"></i></a>
-            </div>
-            <p class="mb-1 text-white-50" style="font-size: 0.75rem;">&copy; 2026 AURA Clínica & Estética. Todos los derechos reservados.</p>
-            <p class="text-muted mb-0" style="font-size: 0.7rem;">Diseño modelo interactivo desarrollado para fines de portfolio profesional.</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita la recarga de página convencional
-            
-            // Recolectar datos del cliente
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('clientPhone').value;
-            const email = document.getElementById('clientEmail').value;
-            const service = document.getElementById('selectedService').value;
-            const notes = document.getElementById('clientNotes').value || 'Ninguna';
-
-            // Armar mensaje estructurado para WhatsApp
-            const message = `Hola AURA! Me gustaría agendar una cita.%0A%0A` +
-                            `*Nombre:* ${encodeURIComponent(name)}%0A` +
-                            `*Teléfono:* ${encodeURIComponent(phone)}%0A` +
-                            `*Email:* ${encodeURIComponent(email)}%0A` +
-                            `*Tratamiento:* ${encodeURIComponent(service)}%0A` +
-                            `*Observaciones:* ${encodeURIComponent(notes)}`;
-
-            // Redirigir al chat de WhatsApp con los datos listos
-            const waUrl = `https://wa.me/541155550220?text=${message}`;
-            window.open(waUrl, '_blank');
-        });
-    </script>
 </body>
 </html>
