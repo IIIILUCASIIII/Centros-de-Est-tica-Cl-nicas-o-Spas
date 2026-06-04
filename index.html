@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aura - Clínica Estética & Spa Wellness</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --color-primary: #8E9A86; /* Verde relajante / salvia */
-            --color-secondary: #D4C5B9; /* Arena / Crema cálido */
+            --color-primary: #8E9A86; /* Verde salvia */
+            --color-secondary: #D4C5B9; 
             --color-dark: #333333;
             --color-light: #FBF9F6;
         }
@@ -20,6 +23,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: var(--color-light);
             color: var(--color-dark);
+            position: relative;
         }
 
         h1, h2, h3, .navbar-brand {
@@ -30,45 +34,57 @@
         .bg-light-custom { background-color: var(--color-light); }
         .text-primary-custom { color: var(--color-primary); }
 
-        /* Navbar */
+        /* Ajuste para que el menú fijo no tape los títulos al hacer clic */
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        /* Navbar Corregido */
         .navbar {
-            background-color: rgba(253, 251, 248, 0.95);
+            background-color: rgba(253, 251, 248, 0.95) !important;
             backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(212, 197, 185, 0.3)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            padding: 160px 0 120px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.55), rgba(212, 197, 185, 0.25)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 180px 0 120px 0;
+            min-height: 80vh;
         }
 
         /* Botones personalizados */
         .btn-spa {
             background-color: var(--color-primary);
-            color: white;
+            color: white !important;
             border-radius: 0;
             padding: 12px 30px;
             transition: all 0.3s ease;
             border: 1px solid var(--color-primary);
+            text-decoration: none;
+            display: inline-block;
         }
         .btn-spa:hover {
             background-color: transparent;
-            color: var(--color-primary);
+            color: var(--color-primary) !important;
         }
 
+        /* Corrección de visibilidad para el botón secundario en el Hero */
         .btn-outline-spa {
             border: 1px solid var(--color-primary);
-            color: var(--color-primary);
+            color: var(--color-dark) !important; /* Cambiado a oscuro para contraste */
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo sutil para legibilidad */
             border-radius: 0;
             padding: 12px 30px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
         .btn-outline-spa:hover {
             background-color: var(--color-primary);
-            color: white;
+            color: white !important;
         }
 
-        /* Tarjetas de servicios */
         .service-card {
             border: none;
             border-radius: 0;
@@ -80,7 +96,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        /* Testimonios */
         .testimonial-carousel {
             background-color: #F1ECE6;
         }
@@ -88,10 +103,12 @@
 </head>
 <body>
 
+    <!-- NAV BAR CORREGIDA -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm px-4">
         <div class="container">
-            <a class="navbar-brand fs-3 fw-bold text-primary-custom" href="#">AURA</a>
-            <button class="navbar-collapse-target navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fs-3 fw-bold text-primary-custom" href="#inicio">AURA</a>
+            <!-- Botón de colapso corregido con atributos estándar de Bootstrap 5 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -100,7 +117,7 @@
                     <li class="nav-item"><a class="nav-link mx-2" href="#servicios">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link mx-2" href="#nosotros">La Clínica</a></li>
                     <li class="nav-item"><a class="nav-link mx-2" href="#testimonios">Opiniones</a></li>
-                    <li class="nav-item ms-3">
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
                         <a class="btn btn-spa" href="#contacto">Agendar Cita</a>
                     </li>
                 </ul>
@@ -108,22 +125,24 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section id="inicio" class="hero-section d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6" data-aos="fade-up">
+                <div class="col-lg-6">
                     <span class="text-uppercase tracking-wider text-muted small fw-bold">Un oasis de bienestar en tu ciudad</span>
                     <h1 class="display-4 fw-bold mt-2 mb-4">Reconecta con tu belleza natural y paz interior</h1>
                     <p class="lead text-muted mb-5">En Aura combinamos tratamientos médicos estéticos de vanguardia con rituales de spa diseñados exclusivamente para tu relajación y cuidado personal.</p>
                     <div class="d-flex gap-3">
                         <a href="#contacto" class="btn btn-spa shadow-sm">Reserva Online</a>
-                        <a href="#servicios" class="btn btn-outline-spa">Ver Tratamientos</a>
+                        <a href="#servicios" class="btn btn-outline-spa shadow-sm">Ver Tratamientos</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- VALORES -->
     <section class="py-5 bg-white border-bottom">
         <div class="container">
             <div class="row text-center g-4">
@@ -135,4 +154,210 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3
+                    <div class="p-3">
+                        <i class="fa-solid fa-leaf fs-2 text-primary-custom mb-3"></i>
+                        <h5>Productos Premium</h5>
+                        <p class="text-muted small">Utilizamos cosmética orgánica y aparatología médica de última generación.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="fa-solid fa-hand-holding-heart fs-2 text-primary-custom mb-3"></i>
+                        <h5>Atención Personalizada</h5>
+                        <p class="text-muted small">Evaluamos tus necesidades para diseñar un plan de tratamiento único para ti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-5 bg-light-custom">
+        <div class="container py-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h2 class="display-5 fw-bold">Nuestros Tratamientos</h2>
+                <div class="mx-auto my-3 bg-primary-custom" style="width: 60px; height: 2px;"></div>
+                <p class="text-muted">Resultados visibles, experiencias inolvidables. Explora nuestros servicios estrella.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Servicio 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Medicina Estética">
+                        <div class="card-body p-4">
+                            <h4 class="card-title h5 fw-bold">Medicina Estética Facial</h4>
+                            <p class="card-text text-muted small">Ácido hialurónico, hilos tensores y rejuvenecimiento sin cirugía para lucir un rostro fresco y natural.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="fw-bold text-primary-custom">Desde 89€</span>
+                                <a href="#contacto" class="btn btn-sm btn-outline-spa">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Rituales Spa">
+                        <div class="card-body p-4">
+                            <h4 class="card-title h5 fw-bold">Rituales de Spa & Masajes</h4>
+                            <p class="card-text text-muted small">Desconecta del estrés diario con masajes de piedras volcánicas, aromaterapia y envolturas corporales.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="fw-bold text-primary-custom">Desde 45€</span>
+                                <a href="#contacto" class="btn btn-sm btn-outline-spa">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 service-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Aparatología">
+                        <div class="card-body p-4">
+                            <h4 class="card-title h5 fw-bold">Aparatología Avanzada</h4>
+                            <p class="card-text text-muted small">Eliminación de grasa localizada, celulitis y flacidez con radiofrecuencia y depilación láser médica.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="fw-bold text-primary-custom">Desde 60€</span>
+                                <a href="#contacto" class="btn btn-sm btn-outline-spa">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA CLÍNICA -->
+    <section id="nosotros" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Instalaciones" class="img-fluid shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <span class="text-primary-custom fw-bold text-uppercase small">Nuestra Filosofía</span>
+                    <h2 class="display-6 fw-bold mt-2 mb-4">Un espacio diseñado para tu equilibrio</h2>
+                    <p class="text-muted">Creemos que el cuidado personal no es un lujo, sino una necesidad para mantener el equilibrio en tu día a día. Nuestras instalaciones cuentan con cabinas privadas totalmente insonorizadas, música ambiental relajante y aromas que te transportarán a un estado de paz absoluta desde que cruzas la puerta.</p>
+                    <div class="mt-4 row g-2">
+                        <div class="col-6"><i class="fa-solid fa-check text-primary-custom me-2"></i> Diagnóstico previo gratuito</div>
+                        <div class="col-6"><i class="fa-solid fa-check text-primary-custom me-2"></i> Parking privado clientes</div>
+                        <div class="col-6"><i class="fa-solid fa-check text-primary-custom me-2"></i> Infusión de bienvenida</div>
+                        <div class="col-6"><i class="fa-solid fa-check text-primary-custom me-2"></i> Financiación a medida</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="py-5 testimonial-carousel">
+        <div class="container py-4 text-center">
+            <h2 class="h1 fw-bold mb-5">Lo que dicen nuestras clientas</h2>
+            
+            <div id="carouselTestimonials" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 700px;">
+                <div class="carousel-inner px-5">
+                    <div class="carousel-item active">
+                        <p class="fs-5 italic text-muted">"Ir a Aura es mi momento favorito de la semana. El tratamiento facial me dejó la piel luminosa y el trato del personal es impecable."</p>
+                        <h6 class="fw-bold mt-4 text-primary-custom">- María V. (Palma)</h6>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="fs-5 italic text-muted">"La limpieza de las instalaciones te da una confianza total. Me hice un masaje descontracturante y salí como nueva."</p>
+                        <h6 class="fw-bold mt-4 text-primary-custom">- Laura G.</h6>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y FORMULARIO FUNCIONAL -->
+    <section id="contacto" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="fw-bold mb-4">¿Listo para regalarte un momento?</h2>
+                    <p class="text-muted mb-4">Completa el formulario y nuestro equipo se pondrá en contacto contigo de inmediato para confirmar tu cita.</p>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="fa-solid fa-location-dot text-primary-custom fs-5 me-3 mt-1"></i>
+                        <div>
+                            <h6>Ubicación</h6>
+                            <p class="text-muted small">Passeig de Mallorca, 12, 07012 Palma</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fa-solid fa-clock text-primary-custom fs-5 me-3 mt-1"></i>
+                        <div>
+                            <h6>Horario de Atención</h6>
+                            <p class="text-muted small">Lunes a Viernes: 09:00 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario con ID para capturar el submit -->
+                <div class="col-lg-7">
+                    <div class="p-4 bg-light-custom shadow-sm">
+                        <h4 class="fw-bold mb-4">Solicitar Reserva / Información</h4>
+                        <form id="appointmentForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">Nombre Completo</label>
+                                    <input type="text" class="form-control rounded-0" id="clientName" placeholder="Ej. Ana García" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">Teléfono móvil</label>
+                                    <input type="tel" class="form-control rounded-0" placeholder="Ej. 600 000 000" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small text-muted">Tratamiento de Interés</label>
+                                    <select class="form-select rounded-0" id="serviceSelect" required>
+                                        <option value="" disabled selected>Selecciona un servicio...</option>
+                                        <option value="Medicina Estética Facial">Medicina Estética Facial</option>
+                                        <option value="Rituales de Spa & Masajes">Rituales de Spa & Masajes</option>
+                                        <option value="Aparatología Avanzada">Aparatología Avanzada</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small text-muted">Mensaje o preferencia de horario</label>
+                                    <textarea class="form-control rounded-0" rows="3" placeholder="Cuéntanos tus preferencias..."></textarea>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <button type="submit" class="btn btn-spa w-100">Enviar Solicitud de Cita</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-2" style="font-family: 'Playfair Display', serif;">AURA</p>
+            <p class="small text-muted mb-0">© 2026 Aura Bienestar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (Asegura el funcionamiento del menú colapsable y carrusel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script interactivo de simulación -->
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('serviceSelect').value;
+            
+            alert(`¡Gracias ${name}! Tu solicitud para "${service}" ha sido enviada con éxito. En una plantilla real, estos datos llegarían al correo o al WhatsApp de la clínica.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
