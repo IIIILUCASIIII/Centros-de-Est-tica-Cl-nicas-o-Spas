@@ -4,270 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estética, Clínicas & Spas - Soluciones Web</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para los iconos y WhatsApp -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --bg-soft: #fbf9f6;        /* Fondo crema ultra suave y limpio */
-            --text-main: #2d3142;      /* Gris muy oscuro para máxima legibilidad */
-            --text-muted: #6c757d;     /* Gris medio para descripciones */
-            --accent-gold: #c5a880;    /* Oro suave para detalles premium */
-            --accent-spa: #7c9a92;     /* Verde eucalipto/spa para botones y badges */
-            --card-white: #ffffff;
+            --bg-color: #090b11;        /* Fondo oscuro profundo */
+            --card-bg: #121622;         /* Fondo de tarjetas */
+            --text-color: #ffffff;
+            --text-muted: #94a3b8;
+            --accent-color: #ff2a85;    /* Rosa orquídea neón (exclusivo estética) */
+            --whatsapp-color: #25d366;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-soft);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            padding: 80px 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 60px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
         }
 
-        /* Cabecera de la página */
-        .header-section {
-            text-align: center;
-            max-width: 800px;
-            margin-bottom: 60px;
-        }
-
-        .spa-badge {
-            display: inline-block;
-            background-color: rgba(124, 154, 146, 0.1);
-            color: var(--accent-spa);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+        .badge {
+            background-color: rgba(255, 42, 133, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            border: 1px solid rgba(124, 154, 146, 0.2);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 42, 133, 0.2);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            line-height: 1.2;
-            color: var(--text-main);
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .subtitle {
             color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.8;
-            font-weight: 300;
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
         }
 
-        /* Contenedor Principal (Diferente a la cuadrícula habitual) */
-        .showcase-container {
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* DISEÑO ASIMÉTRICO (Bento Grid) para romper con el diseño de Abogados */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
             width: 100%;
             max-width: 1100px;
-            background: var(--card-white);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(45, 49, 66, 0.04);
-            border: 1px solid rgba(197, 168, 128, 0.15);
         }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--text-main);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-gold);
-            margin: 15px auto 0 auto;
-        }
-
-        /* Bloque de características/servicios en formato fila orgánica */
-        .feature-row {
+        .right-column {
             display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px dashed rgba(197, 168, 128, 0.3);
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .feature-row:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .icon-box {
-            background-color: var(--bg-soft);
-            color: var(--accent-spa);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 42, 133, 0.05);
+            border-radius: 16px;
+            padding: 35px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            border: 1px solid rgba(124, 154, 146, 0.15);
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s ease;
         }
 
-        .feature-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
+        .card:hover {
+            border-color: rgba(255, 42, 133, 0.2);
         }
 
-        .feature-text p {
+        .card-main {
+            min-height: 380px;
+        }
+
+        .card-icon {
+            color: var(--accent-color);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
             color: var(--text-muted);
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 1rem;
+            margin-bottom: 30px;
         }
 
-        .feature-text p strong {
-            color: var(--accent-spa);
-            font-weight: 600;
+        .card-description strong {
+            color: var(--text-color);
+            border-bottom: 2px solid var(--accent-color);
         }
 
-        /* Botón de acción principal */
-        .cta-container {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .btn-spa {
-            display: inline-block;
-            background-color: var(--accent-spa);
-            color: white;
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            box-shadow: 0 10px 25px rgba(124, 154, 146, 0.25);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .btn-spa:hover {
+        .card-btn {
             background-color: transparent;
-            color: var(--accent-spa);
-            border-color: var(--accent-spa);
-            box-shadow: 0 10px 25px rgba(124, 154, 146, 0.05);
-            transform: translateY(-2px);
+            color: var(--accent-color);
+            border: 1px solid rgba(255, 42, 133, 0.3);
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        /* Botón flotante de WhatsApp */
-        .whatsapp-float {
+        .card-btn:hover {
+            background-color: rgba(255, 42, 133, 0.1);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 42, 133, 0.2);
+        }
+
+        /* Botón de WhatsApp flotante */
+        .whatsapp-container {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-badge {
+            background-color: var(--whatsapp-color);
             color: white;
-            width: 60px;
-            height: 60px;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-icon {
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            text-decoration: none;
-            z-index: 999;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
         }
 
-        .whatsapp-float:hover {
+        .whatsapp-container:hover .whatsapp-icon {
             transform: scale(1.1);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .feature-row {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+        @media (max-width: 850px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
             }
-            .showcase-container {
-                padding: 30px 20px;
-            }
-            h1 {
-                font-size: 2.2rem;
+            .card-main {
+                min-height: auto;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-section">
-        <div class="spa-badge">Estética, Clínicas & Spas</div>
-        <h1>Diseño Digital Inspirado en el Bienestar</h1>
-        <p class="subtitle">
-            Estructuras web pensadas exclusivamente para centros de salud, belleza y relajación. Creamos un entorno digital que transmite la misma paz y confianza que tu propio establecimiento.
-        </p>
+    <div class="badge">Estética, Clínicas & Spas</div>
+    
+    <h1>Centros de Estética, Clínicas o Spas</h1>
+    
+    <p class="subtitle">
+        Diseño y desarrollo de sitios web de alto impacto visual. Atraiga más pacientes y gestione sus citas de manera automatizada con una interfaz premium y ultra rápida.
+    </p>
+
+    <h2>Soluciones Digitales a la Medida</h2>
+
+    <div class="grid-layout">
+        <!-- Tarjeta Principal (Izquierda) -->
+        <div class="card card-main">
+            <div>
+                <div class="card-icon"><i class="fa-solid fa-sparkles"></i></div>
+                <div class="card-title">Interfaz Pulcra y de Alta Confianza</div>
+                <p class="card-description">
+                    Desarrollamos una experiencia visual envolvente, relajante y sumamente profesional, estructurada estratégicamente <strong>para convertir visitas digitales en citas agendadas</strong> de forma automática.
+                </p>
+            </div>
+            <a href="#" class="card-btn">Ver Demo En Vivo</a>
+        </div>
+
+        <!-- Columna Derecha (Dos tarjetas secundarias) -->
+        <div class="right-column">
+            <div class="card">
+                <div>
+                    <div class="card-title" style="font-size: 1.25rem;"><i class="fa-regular fa-calendar-check" style="color: var(--accent-color); margin-right: 10px;"></i> Agenda Online</div>
+                    <p class="card-description" style="font-size: 0.9rem; margin-bottom: 0;">
+                        Sistema integrado para que tus clientes reserven tratamientos y seleccionen horarios sin necesidad de llamarte por teléfono.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-title" style="font-size: 1.25rem;"><i class="fa-solid fa-hot-tub-person" style="color: var(--accent-color); margin-right: 10px;"></i> Catálogo de Servicios</div>
+                    <p class="card-description" style="font-size: 0.9rem; margin-bottom: 0;">
+                        Exposición elegante de aparatología, tratamientos faciales y corporales con tarifas claras que elevan el valor de tu marca.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="showcase-container">
-        <h2 class="section-title">Tu Clínica Abierta 24/7</h2>
-
-        <div class="feature-row">
-            <div class="icon-box">
-                <i class="fa-solid fa-leaf"></i>
-            </div>
-            <div class="feature-text">
-                <h3>Interfaz Pulcra y de Alta Confianza</h3>
-                <p>Diseño visual limpio, minimalista y elegante, estructurado estratégicamente <strong>para convertir visitas digitales en citas reales de manera intuitiva y relajada.</strong></p>
-            </div>
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/34678631572?text=Hola,%20quiero%20información%20para%20una%20web%20de%20estética" class="whatsapp-container" target="_blank">
+        <div class="whatsapp-badge">¿Hablamos? Pide tu presupuesto</div>
+        <div class="whatsapp-icon">
+            <i class="fa-brands fa-whatsapp"></i>
         </div>
-
-        <div class="feature-row">
-            <div class="icon-box">
-                <i class="fa-regular fa-calendar-check"></i>
-            </div>
-            <div class="feature-text">
-                <h3>Agendamiento Inteligente Automatizado</h3>
-                <p>Permite que tus pacientes reserven, reprogramen o consulten la disponibilidad de tratamientos de forma fluida desde cualquier dispositivo móvil sin fricciones.</p>
-            </div>
-        </div>
-
-        <div class="feature-row">
-            <div class="icon-box">
-                <i class="fa-solid fa-sparkles"></i>
-            </div>
-            <div class="feature-text">
-                <h3>Visualización Premium de Tratamientos</h3>
-                <p>Espacios dedicados para exponer de manera impecable tus servicios de aparatología, medicina estética o terapias, elevando la percepción de valor de tu marca.</p>
-            </div>
-        </div>
-
-        <div class="cta-container">
-            <a href="https://wa.me/34678631572?text=Hola,%20solicito%20demo%20para%20Clinica%20Estetica" class="btn-spa" target="_blank">Ver Demo En Vivo</a>
-        </div>
-    </div>
-
-    <a href="https://wa.me/34678631572?text=Hola,%20me%20gustaría%20pedir%20un%20presupuesto" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
     </a>
 
 </body>
